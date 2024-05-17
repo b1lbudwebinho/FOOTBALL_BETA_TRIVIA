@@ -8,7 +8,7 @@ interface Props {
     jerseyNumber: number;
 }
 
-const Card = (props: Props) => {
+const Card = ({ playerName, club, jerseyNumber }: Props) => {
     return (
         <div className="card">
             <img
@@ -16,9 +16,9 @@ const Card = (props: Props) => {
                 alt="Image"
             />
             <div className="details">
-                <h2>MESSI</h2>
-                <p>Inter Miami</p>
+                <h2>{playerName}</h2>
             </div>
+            <p>{club} ({jerseyNumber})</p>
             <p className="info">
                 WALKING LIVING LEGEND GOAT
             </p>
