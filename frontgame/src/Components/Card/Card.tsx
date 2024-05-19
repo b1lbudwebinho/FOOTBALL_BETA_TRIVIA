@@ -8,7 +8,10 @@ interface Props {
     jerseyNumber: number;
 }
 
-const Card = ({ playerName, club, jerseyNumber }: Props) => {
+// const Card = ({ playerName, club, jerseyNumber }: Props) => {
+const Card: React.FC<Props> = ({
+    playerName, club, jerseyNumber, 
+}: Props): JSX.Element => {
     return (
         <div className="card">
             <img

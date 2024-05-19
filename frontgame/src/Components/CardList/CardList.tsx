@@ -4,7 +4,8 @@ import Card from '../Card/Card'
 interface Props {}
 // type Props = {}; /* it can also be type, no-problem */
 
-const CardList = (props: Props) => {
+// const CardList = (props: Props) => {
+const CardList: React.FC<Props> = (props: Props): JSX.Element => {
   return (
     <div>
         <Card playerName="Lionel Messi" club="Inter Miami" jerseyNumber={10}/>
