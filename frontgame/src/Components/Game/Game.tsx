@@ -1,4 +1,4 @@
-export default function Component() {
+export default function Game() {
     return (
       <>
         <div className="grid grid-cols-3 gap-4 relative">

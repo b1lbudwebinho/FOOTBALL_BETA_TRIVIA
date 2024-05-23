@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function NewsPage() {
   return (
@@ -8,24 +8,21 @@ export default function NewsPage() {
           <nav className="flex items-center justify-between">
             <div className="text-2xl font-bold">News Site</div>
             <div className="space-x-4">
-              <NavLink className="text-zinc-900 hover:text-zinc-700" to="#">
+              <Link className="text-zinc-900 hover:text-zinc-700" to="#">
                 Home
-              </NavLink>
-              <NavLink className="text-zinc-900 hover:text-zinc-700" to="#">
-                Politics
-              </NavLink>
-              <NavLink className="text-zinc-900 hover:text-zinc-700" to="#">
-                Business
-              </NavLink>
-              <NavLink className="text-zinc-900 hover:text-zinc-700" to="#">
-                Tech
-              </NavLink>
-              <NavLink className="text-zinc-900 hover:text-zinc-700" to="#">
-                Culture
-              </NavLink>
-              <NavLink className="text-zinc-900 hover:text-zinc-700" to="#">
-                Sports
-              </NavLink>
+              </Link>
+              <Link className="text-zinc-900 hover:text-zinc-700" to="/game">
+                Bingo-Game
+              </Link>
+              <Link className="text-zinc-900 hover:text-zinc-700" to="/vote">
+                Vote
+              </Link>
+              <Link className="text-zinc-900 hover:text-zinc-700" to="#">
+                Premier League
+              </Link>
+              <Link className="text-zinc-900 hover:text-zinc-700" to="#">
+                Contact
+              </Link>
             </div>
           </nav>
         </div>
@@ -39,7 +36,7 @@ export default function NewsPage() {
                 alt="Top Story Image"
                 className="w-full h-64 object-cover object-center rounded-lg"
                 height="400"
-                src="/placeholder.svg"
+                src="/images/robertlewandowski.jpeg"
                 style={{
                   aspectRatio: "600/400",
                   objectFit: "cover",
@@ -48,22 +45,22 @@ export default function NewsPage() {
               />
             </div>
             <div className="flex flex-col justify-center">
-              <h3 className="text-xl font-bold mb-2">Top Story Headline</h3>
+              <h3 className="text-xl font-bold mb-2">Lewandowski zostaje w Barcelonie!</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the top story. Click the link to read more.
+                Polak zamierza walczyć o mistrzostwo w nadchodzącym sezonie.
               </p>
-              <NavLink className="text-blue-500 hover:text-blue-700 mt-4" to="#">
+              <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More
-              </NavLink>
+              </Link>
             </div>
           </div>
         </section>
         <section className="mb-8">
-          <h2 className="text-2xl font-bold mb-4">Politics</h2>
+          <h2 className="text-2xl font-bold mb-4">Rozgrywki Europejskie</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <img
-                alt="Politics Story Image"
+                alt="Rozgrywki Europejskie Story Image"
                 className="w-full h-64 object-cover object-center rounded-lg"
                 height="400"
                 src="/placeholder.svg"
@@ -73,82 +70,17 @@ export default function NewsPage() {
                 }}
                 width="600"
               />
-              <h3 className="text-xl font-bold mb-2 mt-4">Politics Story Headline</h3>
-              <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the politics story. Click the link to read more.
-              </p>
-              <NavLink className="text-blue-500 hover:text-blue-700 mt-4" to="#">
-                Read More
-              </NavLink>
-            </div>
-            <div>
-              <img
-                alt="Politics Story Image"
-                className="w-full h-64 object-cover object-center rounded-lg"
-                height="400"
-                src="/placeholder.svg"
-                style={{
-                  aspectRatio: "600/400",
-                  objectFit: "cover",
-                }}
-                width="600"
-              />
-              <h3 className="text-xl font-bold mb-2 mt-4">Politics Story Headline</h3>
-              <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the politics story. Click the link to read more.
-              </p>
-              <NavLink className="text-blue-500 hover:text-blue-700 mt-4" to="#">
-                Read More
-              </NavLink>
-            </div>
-            <div>
-              <img
-                alt="Politics Story Image"
-                className="w-full h-64 object-cover object-center rounded-lg"
-                height="400"
-                src="/placeholder.svg"
-                style={{
-                  aspectRatio: "600/400",
-                  objectFit: "cover",
-                }}
-                width="600"
-              />
-              <h3 className="text-xl font-bold mb-2 mt-4">Politics Story Headline</h3>
-              <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the politics story. Click the link to read more.
-              </p>
-              <NavLink className="text-blue-500 hover:text-blue-700 mt-4" to="#">
-                Read More
-              </NavLink>
-            </div>
-          </div>
-        </section>
-        <section className="mb-8">
-          <h2 className="text-2xl font-bold mb-4">Business</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div>
-              <img
-                alt="Business Story Image"
-                className="w-full h-64 object-cover object-center rounded-lg"
-                height="400"
-                src="/placeholder.svg"
-                style={{
-                  aspectRatio: "600/400",
-                  objectFit: "cover",
-                }}
-                width="600"
-              />
-              <h3 className="text-xl font-bold mb-2 mt-4">Business Story Headline</h3>
+              <h3 className="text-xl font-bold mb-2 mt-4">Rozgrywki Europejskie Story Headline</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
                 This is a brief summary of the business story. Click the link to read more.
               </p>
-              <NavLink className="text-blue-500 hover:text-blue-700 mt-4" to="#">
+              <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More
-              </NavLink>
+              </Link>
             </div>
             <div>
               <img
-                alt="Business Story Image"
+                alt="Rozgrywki Europejskie Story Image"
                 className="w-full h-64 object-cover object-center rounded-lg"
                 height="400"
                 src="/placeholder.svg"
@@ -158,17 +90,17 @@ export default function NewsPage() {
                 }}
                 width="600"
               />
-              <h3 className="text-xl font-bold mb-2 mt-4">Business Story Headline</h3>
+              <h3 className="text-xl font-bold mb-2 mt-4">Rozgrywki Europejskie Story Headline</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
                 This is a brief summary of the business story. Click the link to read more.
               </p>
-              <NavLink className="text-blue-500 hover:text-blue-700 mt-4" to="#">
+              <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More
-              </NavLink>
+              </Link>
             </div>
             <div>
               <img
-                alt="Business Story Image"
+                alt="Rozgrywki Europejskie Story Image"
                 className="w-full h-64 object-cover object-center rounded-lg"
                 height="400"
                 src="/placeholder.svg"
@@ -178,22 +110,22 @@ export default function NewsPage() {
                 }}
                 width="600"
               />
-              <h3 className="text-xl font-bold mb-2 mt-4">Business Story Headline</h3>
+              <h3 className="text-xl font-bold mb-2 mt-4">Rozgrywki Europejskie Story Headline</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
                 This is a brief summary of the business story. Click the link to read more.
               </p>
-              <NavLink className="text-blue-500 hover:text-blue-700 mt-4" to="#">
+              <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More
-              </NavLink>
+              </Link>
             </div>
           </div>
         </section>
         <section className="mb-8">
-          <h2 className="text-2xl font-bold mb-4">Tech</h2>
+          <h2 className="text-2xl font-bold mb-4">Nadchodzące wydarzenia</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <img
-                alt="Tech Story Image"
+                alt="Nadchodzące wydarzenia Story Image"
                 className="w-full h-64 object-cover object-center rounded-lg"
                 height="400"
                 src="/placeholder.svg"
@@ -203,82 +135,17 @@ export default function NewsPage() {
                 }}
                 width="600"
               />
-              <h3 className="text-xl font-bold mb-2 mt-4">Tech Story Headline</h3>
-              <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the tech story. Click the link to read more.
-              </p>
-              <NavLink className="text-blue-500 hover:text-blue-700 mt-4" to="#">
-                Read More
-              </NavLink>
-            </div>
-            <div>
-              <img
-                alt="Tech Story Image"
-                className="w-full h-64 object-cover object-center rounded-lg"
-                height="400"
-                src="/placeholder.svg"
-                style={{
-                  aspectRatio: "600/400",
-                  objectFit: "cover",
-                }}
-                width="600"
-              />
-              <h3 className="text-xl font-bold mb-2 mt-4">Tech Story Headline</h3>
-              <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the tech story. Click the link to read more.
-              </p>
-              <NavLink className="text-blue-500 hover:text-blue-700 mt-4" to="#">
-                Read More
-              </NavLink>
-            </div>
-            <div>
-              <img
-                alt="Tech Story Image"
-                className="w-full h-64 object-cover object-center rounded-lg"
-                height="400"
-                src="/placeholder.svg"
-                style={{
-                  aspectRatio: "600/400",
-                  objectFit: "cover",
-                }}
-                width="600"
-              />
-              <h3 className="text-xl font-bold mb-2 mt-4">Tech Story Headline</h3>
-              <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the tech story. Click the link to read more.
-              </p>
-              <NavLink className="text-blue-500 hover:text-blue-700 mt-4" to="#">
-                Read More
-              </NavLink>
-            </div>
-          </div>
-        </section>
-        <section className="mb-8">
-          <h2 className="text-2xl font-bold mb-4">Culture</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div>
-              <img
-                alt="Culture Story Image"
-                className="w-full h-64 object-cover object-center rounded-lg"
-                height="400"
-                src="/placeholder.svg"
-                style={{
-                  aspectRatio: "600/400",
-                  objectFit: "cover",
-                }}
-                width="600"
-              />
-              <h3 className="text-xl font-bold mb-2 mt-4">Culture Story Headline</h3>
+              <h3 className="text-xl font-bold mb-2 mt-4">Nadchodzące wydarzenia Story Headline</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
                 This is a brief summary of the culture story. Click the link to read more.
               </p>
-              <NavLink className="text-blue-500 hover:text-blue-700 mt-4" to="#">
+              <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More
-              </NavLink>
+              </Link>
             </div>
             <div>
               <img
-                alt="Culture Story Image"
+                alt="Nadchodzące wydarzenia Story Image"
                 className="w-full h-64 object-cover object-center rounded-lg"
                 height="400"
                 src="/placeholder.svg"
@@ -288,17 +155,17 @@ export default function NewsPage() {
                 }}
                 width="600"
               />
-              <h3 className="text-xl font-bold mb-2 mt-4">Culture Story Headline</h3>
+              <h3 className="text-xl font-bold mb-2 mt-4">Nadchodzące wydarzenia Story Headline</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
                 This is a brief summary of the culture story. Click the link to read more.
               </p>
-              <NavLink className="text-blue-500 hover:text-blue-700 mt-4" to="#">
+              <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More
-              </NavLink>
+              </Link>
             </div>
             <div>
               <img
-                alt="Culture Story Image"
+                alt="Nadchodzące wydarzenia Story Image"
                 className="w-full h-64 object-cover object-center rounded-lg"
                 height="400"
                 src="/placeholder.svg"
@@ -308,13 +175,13 @@ export default function NewsPage() {
                 }}
                 width="600"
               />
-              <h3 className="text-xl font-bold mb-2 mt-4">Culture Story Headline</h3>
+              <h3 className="text-xl font-bold mb-2 mt-4">Nadchodzące wydarzenia Story Headline</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
                 This is a brief summary of the culture story. Click the link to read more.
               </p>
-              <NavLink className="text-blue-500 hover:text-blue-700 mt-4" to="#">
+              <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More
-              </NavLink>
+              </Link>
             </div>
           </div>
         </section>
@@ -337,9 +204,9 @@ export default function NewsPage() {
               <p className="text-zinc-500 dark:text-zinc-400">
                 This is a brief summary of the sports story. Click the link to read more.
               </p>
-              <NavLink className="text-blue-500 hover:text-blue-700 mt-4" to="#">
+              <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More
-              </NavLink>
+              </Link>
             </div>
             <div>
               <img
@@ -357,9 +224,9 @@ export default function NewsPage() {
               <p className="text-zinc-500 dark:text-zinc-400">
                 This is a brief summary of the sports story. Click the link to read more.
               </p>
-              <NavLink className="text-blue-500 hover:text-blue-700 mt-4" to="#">
+              <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More
-              </NavLink>
+              </Link>
             </div>
             <div>
               <img
@@ -377,13 +244,13 @@ export default function NewsPage() {
               <p className="text-zinc-500 dark:text-zinc-400">
                 This is a brief summary of the sports story. Click the link to read more.
               </p>
-              <NavLink className="text-blue-500 hover:text-blue-700 mt-4" to="#">
+              <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More
-              </NavLink>
+              </Link>
             </div>
           </div>
         </section>
       </main>
     </section>
-  )
+  );
 }
