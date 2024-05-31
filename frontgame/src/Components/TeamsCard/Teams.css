@@ -1,0 +1,25 @@
+.teams-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .team-card {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+  }
+  
+  .team-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  
+  h3 {
+    margin: 10px 0;
+  }
+  

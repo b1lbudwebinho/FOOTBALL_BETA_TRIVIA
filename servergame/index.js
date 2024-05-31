@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const axios = require('axios')
 
 const app = express();
 const port = 3003;
@@ -25,6 +26,25 @@ app.post('/api/vote', (req, res) => {
 
 app.get('/api/votes', (req, res) => {
   res.json(votes); // Send current vote counts
+});
+
+
+// Proxy endpoint to fetch data from external URLs
+app.get('/api/fetch', async (req, res) => {
+  const url = req.query.url;
+
+  if (!url) {
+    return res.status(400).json({ error: 'URL is required' });
+  }
+
+  try {
+    console.log(`Fetching URL: ${url}`);
+    const response = await axios.get(url);
+    res.send(response.data);
+  } catch (error) {
+    console.error('Error fetching URL:', error.message);
+    res.status(500).json({ error: 'Failed to fetch URL', details: error.message });
+  }
 });
 
 app.listen(port, () => {
