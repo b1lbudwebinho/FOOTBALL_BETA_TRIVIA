@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './TeamsCard.css'
 
-const FootballTeams = () => {
+const TeamsCard = () => {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchTeams = async () => {
-      const API_KEY = 'YOUR_API_KEY'; // Replace with your Football-Data.org API key
-      const URL = 'https://api.football-data.org/v2/competitions/PL/teams'; // Example: Premier League teams
+      const API_KEY = process.env.REACT_APP_API_KEY; // Replace with your Football-Data.org API key
+      const URL = 'v2/competitions/PL/teams'; // Example: Premier League teams
 
       try {
         const response = await axios.get(URL, {
@@ -50,4 +50,4 @@ const FootballTeams = () => {
   );
 };
 
-export default FootballTeams;
+export default TeamsCard;

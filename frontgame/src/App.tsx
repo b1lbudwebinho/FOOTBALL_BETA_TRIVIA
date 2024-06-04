@@ -7,10 +7,12 @@ import TeamsCard from './Components/TeamsCard/TeamsCard';
 import Game from './Components/Game/Game';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import VotingComponent from './Components/VoteComp/VotingComponent';
+import Navbar from './Components/Navbar/Navbar';
 
 function App() {
   return (
     <div className="App">
+        <Navbar />
         <Routes>
 
           {/* <Search />
@@ -22,6 +24,7 @@ function App() {
             optionA={{ image: '/images/realmadri.jpeg', label: 'Option A' }}
             optionB={{ image: '/images/Borussia.png', label: 'Option B' }}
           />} />
+          
         </Routes>
     </div>
   );
