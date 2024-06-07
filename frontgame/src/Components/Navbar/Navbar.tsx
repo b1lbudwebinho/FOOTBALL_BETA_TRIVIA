@@ -20,7 +20,7 @@ const Navbar = () => {
                         <Link className="text-zinc-900 hover:text-zinc-700" to="/teams">
                             Premier League
                         </Link>
-                        <Link className="text-zinc-900 hover:text-zinc-700" to="#">
+                        <Link className="text-zinc-900 hover:text-zinc-700" to="/contact">
                             Contact
                         </Link>
                     </div>
