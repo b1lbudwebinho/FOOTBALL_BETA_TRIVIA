@@ -6,6 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { MantineProvider } from '@mantine/core';
 
+// ResizeObserver deprecated func. suppress
+window.addEventListener('error', event => {
+  if (event.message === 'ResizeObserver loop completed with undelivered notifications.') {
+    event.stopImmediatePropagation();
+  }
+});
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

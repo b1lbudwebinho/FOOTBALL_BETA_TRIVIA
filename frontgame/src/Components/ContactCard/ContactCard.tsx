@@ -1,30 +1,32 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Autocomplete, Loader, Container, Stack, Text, Title, Button } from "@mantine/core";
 import { Link } from "react-router-dom";
 import '@mantine/core/styles.css';
+import debounce from 'lodash.debounce';
 
+// props for the autoload;
+interface AutocompleteLoadingProps {
+  value: string;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
+}
 // The load function provided /w mantine-ui
-function AutocompleteLoading() {
+function AutocompleteLoading({value, setValue}: AutocompleteLoadingProps) {
+  // window.ResizeObserver = undefined;
   const timeoutRef = useRef<number>(-1);
-  const [value, setValue] = useState('');
+  // const [value, setValue] = useState('');
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<string[]>([]);
 
-  const handleChange = (val: string) => {
-    window.clearTimeout(timeoutRef.current);
+  const handleChange = debounce((val: string) => {
+    window.clearTimeout(timeoutRef.current)
     setValue(val);
     setData([]);
 
-    if (val.trim().length === 0 || val.includes('@')) {
+    if(val.trim().length === 0 || val.includes('@')) {
       setLoading(false);
-    } else {
-      setLoading(true);
-      timeoutRef.current = window.setTimeout(() => {
-        setLoading(false);
-        setData(['gmail.com', 'outlook.com', 'yahoo.com'].map((provider) => `${val}@${provider}`));
-      }, 1000);
     }
-  };
+  });
+
   return (
     <Autocomplete
       value={value}
@@ -35,6 +37,7 @@ function AutocompleteLoading() {
     />
   );
 }
+
 
 export default function ContactCard() {
   const [email, setEmail] = useState("");
@@ -80,15 +83,17 @@ export default function ContactCard() {
             <div className="flex flex-col justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
-                  Zapisz się do Newslettera!
+                  {/* Zapisz się do Newslettera! */}
+                  Newsletter!
                 </h1>
                 <p className="max-w-[600px] text-zinc-200 md:text-xl dark:text-zinc-100 mx-auto">
-                  Dołącz do naszego mailingu i bądź na bieząco z najnowszymi wydarzeniami.
+                  {/* Dołącz do naszego mailingu i bądź na bieząco z najnowszymi wydarzeniami. */}
+                  Join our mailing system!
                 </p>
               </div>
               <div className="w-full max-w-sm space-y-2 mx-auto">
                 <form onSubmit={handleSubmit} className="inline-flex space-x-2 mx-auto">
-                  <AutocompleteLoading />
+                  <AutocompleteLoading value={email} setValue={setEmail}/>
                   <Button className="bg-white text-black" type="submit"
                   style={{
                       backgroundColor: '#2563eb',
@@ -100,15 +105,18 @@ export default function ContactCard() {
                       flexShrink: 0
                     }}
                   >
-                    Zapisz się
+                    {/* Zapisz się */}
+                    Sign up
                   </Button>
                 </form>
                 {error && <Text style={{ color: 'red', fontSize: '0.75rem' }}>{error}</Text>}
                 {success && <Text style={{ color: 'green', fontSize: '0.75rem' }}>{success}</Text>}
                 <p className="text-xs text-zinc-200 dark:text-zinc-100">
-                  Zdobądź sportowe informacje przed wszystkimi. 
+                  {/* Zdobądź sportowe informacje przed wszystkimi.  */}
+                  Sport news!
                   <Link className="underline underline-offset-2 text-white" to="#" >
-                    Regulamin
+                    {/* Regulamin */}
+                    Terms & Conditions
                   </Link>
                 </p>
               </div>
