@@ -1,0 +1,32 @@
+service: my-fullstack-ftbl-app
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-east-1
+
+functions:
+  app:
+    handler: server.handler
+    events:
+      - http:
+          path: /
+          method: get
+      - http:
+          path: api/clubs
+          method: get
+      - http:
+          path: api/players
+          method: get
+
+plugins:
+  - serverless-offline
+
+package:
+  exclude:
+    - node_modules/**
+    - frontend/**
+    - .gitignore
+    - .env
+    - .git/**
+    - README.md

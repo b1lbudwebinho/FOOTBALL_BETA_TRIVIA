@@ -1,30 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './TeamsCard.css'
+import { response } from 'express';
 
-const TeamsCard = () => {
+const TeamsCard: React.FC = () => {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const API_KEY = process.env.REACT_APP_API_KEY; // Replace with your Football-Data.org API key
   useEffect(() => {
     const fetchTeams = async () => {
-      const API_KEY = process.env.REACT_APP_API_KEY; // Replace with your Football-Data.org API key
-      const URL = 'v2/competitions/PL/teams'; // Example: Premier League teams
-
+      // const URL = '/api/v2/competitions/PL/teams'; // Example: Premier League teams
       try {
-        const response = await axios.get(URL, {
+        const response = await axios.get('/api/v2/competitions/PL/teams', {
           headers: { 'X-Auth-Token': API_KEY },
         });
         setTeams(response.data.teams);
         setLoading(false);
       } catch (err) {
         console.error('Error fetching data:', err);
-        setError(err);
         setLoading(false);
       }
     };
-
     fetchTeams();
   }, []);
 
