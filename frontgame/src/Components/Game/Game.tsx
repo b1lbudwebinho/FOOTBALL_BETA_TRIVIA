@@ -5,12 +5,12 @@ const Game = () => {
   const numPairsToShow = 9;
 
   const fetchClubs = async () => {
-    const clubsResponse = await fetch(`/api/clubs`);
+    const clubsResponse = await fetch(`/api2/clubs`);
     const clubs = await clubsResponse.json();
     return clubs;
   };
   const fetchPlayers = async () => {
-    const plyaersResponse = await fetch(`/api/players`);
+    const plyaersResponse = await fetch(`/api2/players`);
     const players = await plyaersResponse.json();
     return players;
   };

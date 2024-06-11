@@ -19,11 +19,11 @@ client.on('connect', () => {
 
 app.use(express.static(path.join(__dirname, '../frontend/build')));
 //Fetchch
-app.get('/api/clubs', async (req, res) => {
+app.get('/api2/clubs', async (req, res) => {
     const clubs = await client.hGetAll('premier_league_clubs');
     res.json(clubs);
 });
-app.get('/api/players', async(req, res) => {
+app.get('/api2/players', async(req, res) => {
     const playerKeys = await client.keys('player:*');
     const players = {};
 

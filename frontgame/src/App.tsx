@@ -16,18 +16,14 @@ function App() {
     <div className="App">
         <Navbar />
         <Routes>
-
-          {/* <Search />
-          <CardList /> */}
           <Route path="/" element={<NewsPage />} />
           <Route path="/teams" element={<TeamsCard />} />
           <Route path="/contact" element={<ContactCard />} />
-          {/* <Route path="/game" element={<Game />} /> */}
+          <Route path="/game" element={<Game />} />
           <Route path="/vote" element={<VotingComponent
             optionA={{ image: '/images/realmadri.jpeg', label: 'Option A' }}
-            optionB={{ image: '/images/Borussia.png', label: 'Option B' }}
-            />} />
-          
+            optionB={{ image: '/images/Borussia.png', label: 'Option B' }}  />} 
+          />
         </Routes>
     </div>
   );

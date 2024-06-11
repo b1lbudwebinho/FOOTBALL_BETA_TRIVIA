@@ -12,7 +12,7 @@ const TeamsCard: React.FC = () => {
     const fetchTeams = async () => {
       // const URL = '/api/v2/competitions/PL/teams'; // Example: Premier League teams
       try {
-        const response = await axios.get('/api/v2/competitions/PL/teams', {
+        const response = await axios.get('http://localhost:3002/api/v2/competitions/PL/teams', {
           headers: { 'X-Auth-Token': API_KEY },
         });
         setTeams(response.data.teams);
