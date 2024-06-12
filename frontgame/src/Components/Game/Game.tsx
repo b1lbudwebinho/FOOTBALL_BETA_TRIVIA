@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 
 const Game: React.FC = () => {
-  const [grid, setGrid] = useState<{ pair: [string, string], count: number, playerNames: string[], correct: boolean }[][]>([]);
+  const [grid, setGrid] = useState<{ pair: [string, string], count: number, playerNames: string[], correct: boolean, answer?: string }[][]>([]);
   const [error, setError] = useState<string | null>(null);
   const [clubMapping, setClubMapping] = useState<{ [key: string]: string }>({});
   const [loading, setLoading] = useState(true);
+  const [winner, setWinner] = useState<boolean>(false);
   const gridSize = 3;
 
   const fetchClubs = async () => {
@@ -55,42 +56,42 @@ const Game: React.FC = () => {
     return { count, playerNames };
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const clubs = await fetchClubs();
-        const clubKeys = Object.keys(clubs);
-        const clubValues = Object.values(clubs);
-        const players = await fetchPlayers();
-        const clubMapping = clubKeys.reduce((acc, key, index) => {
-          acc[key] = clubValues[index];
-          return acc;
-        }, {});
-        setClubMapping(clubMapping);
-
-        const pairsData: { pair: [string, string], count: number, playerNames: string[], correct: boolean }[][] = [];
-        
-        for (let row = 0; row < gridSize; row++) {
-          const rowPairs = [];
-          for (let col = 0; col < gridSize; col++) {
-            const entity1 = clubKeys[Math.floor(Math.random() * clubKeys.length)];
-            let entity2 = entity1;
-            while(entity2 === entity1) {
-              entity2 = clubKeys[Math.floor(Math.random() * clubKeys.length)];
-            }
-            const { count, playerNames } = fetchPlayerCountForPair(entity1, entity2, players);
-            rowPairs.push({ pair: [entity1, entity2], count, playerNames, correct: false  });
+  const fetchData = async () => {
+    try {
+      const clubs = await fetchClubs();
+      const clubKeys = Object.keys(clubs);
+      const clubValues = Object.values(clubs);
+      const players = await fetchPlayers();
+      const clubMapping = clubKeys.reduce((acc, key, index) => {
+        acc[key] = clubValues[index];
+        return acc;
+      }, {});
+      setClubMapping(clubMapping);
+      
+      const pairsData: { pair: [string, string], count: number, playerNames: string[], correct: boolean }[][] = [];
+      
+      for (let row = 0; row < gridSize; row++) {
+        const rowPairs = [];
+        for (let col = 0; col < gridSize; col++) {
+          const entity1 = clubKeys[Math.floor(Math.random() * clubKeys.length)];
+          let entity2 = entity1;
+          while(entity2 === entity1) {
+            entity2 = clubKeys[Math.floor(Math.random() * clubKeys.length)];
           }
-          pairsData.push(rowPairs);
+          const { count, playerNames } = fetchPlayerCountForPair(entity1, entity2, players);
+          rowPairs.push({ pair: [entity1, entity2], count, playerNames, correct: false  });
         }
-        setGrid(pairsData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-        setError(error.message);
-      } finally {
-        setLoading(false);
+        pairsData.push(rowPairs);
       }
-    };
+      setGrid(pairsData);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
     fetchData();
   }, []);
 
@@ -111,29 +112,70 @@ const Game: React.FC = () => {
       return cell;
     }));
     setGrid(updatedGrid);
+    checkForWin(updatedGrid);
   }
+  // Game functionabilities:
+  const checkForWin = (grid) => {
+    for (let i=0; i<gridSize; i++) {
+      if(grid[i].every(cell => cell.correct) ||
+          grid.every(row => row[i].correct) ||
+          grid.every((row, idx) => row[idx].correct) ||
+          grid.every((row, idx) => row[gridSize - 1 -idx].correct)) {
+        setWinner(true);
+        return;
+      }
+    }
+  };
+  const handlePlayAgain = () => {
+    setWinner(false);
+    setLoading(true);
+    setError(null);
+    setGrid([]);
+    fetchData();
+  };
+  const handleShowAllAnswers = () => {
+    const updatedGrid = grid.map(row => row.map(cell => ({ ...cell, 
+      answer: cell.playerNames.length > 0 ? cell.playerNames[0] : '' })));
+    setGrid(updatedGrid);
+  };
   
   if(loading) {
-    return <div>Loading...</div>
+    return <div className="flex items-center justify-center h-screen">
+      <span className="text-xl">
+        Loading...
+      </span>
+    </div>;
   }
   if(error) {
-    return <div style={{ color: 'red' }}>Error: {error}</div>;
+    return <div className="text-red-500 text-center mt-4">Error: {error}</div>;
   }
-
   return (
-    <div>
-      <h1>Game</h1>
-      {error && <p style={{ color: 'red' }}>Error: {error}</p>}
-      <div style={{ display: 'grid', gridTemplateColumns: `repeat(${gridSize}, 1fr)`, gap: '10px' }}>
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold text-center mb-4">Game</h1>
+      {winner && <h2 className="text-3xl font-bold text-center text-green-500 mb-4">You WIN!</h2>}
+      {winner && (
+        <div className="flex justify-center space-x-4 mb-4">
+          <button onClick={handlePlayAgain} className="bg-blue-500 text-white px-4 py-2 rounded">Play Again?</button>
+          <button onClick={handleShowAllAnswers} className="bg-gray-500 text-white px-4 py-2 rounded">Show all answers</button>
+        </div>
+      )}
+      {error && <p className="text-red-500 text-center">{`Error: ${error}`}</p>}
+      <div className="grid grid-cols-3 gap-4">
         {grid.map((row, rowIndex) => (
-          row.map(({ pair, count, correct }, colIndex) => (
-            <div key={`${rowIndex}-${colIndex}`} style={{ border: '1px solid black', padding: '10px',
-             backgroundColor: correct ? 'green' : 'white' }}>
-              {/* {pair[0]} & {pair[1]}: {count} players */}
-              {clubMapping[pair[0]]} & {clubMapping[pair[1]]}: {count} players
-              <input type="text" disabled={correct} onChange={(e) => handleInputChange(e,rowIndex,colIndex)}
-                style={{ display: correct ? 'none' : 'block' }}
-              />
+          row.map(({ pair, count, correct, answer }, colIndex) => (
+            <div key={`${rowIndex}-${colIndex}`} className={`border p-4 ${correct ? 'bg-green-200' : 'bg-white'} rounded`}>
+              <div className="text-center mb-2">{`${clubMapping[pair[0]]} & ${clubMapping[pair[1]]}: ${count} players`}</div>
+              {answer ? (
+                <div className="text-center text-blue-500 font-semibold">{answer}</div>
+              ) : (
+                <input
+                  type="text"
+                  disabled={correct}
+                  onChange={(e) => handleInputChange(e, rowIndex, colIndex)}
+                  className="w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
+                  style={{ display: correct ? 'none' : 'block' }}
+                />
+              )}
             </div>
           ))
         ))}
