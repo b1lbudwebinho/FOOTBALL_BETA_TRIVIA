@@ -19,11 +19,12 @@ const TeamsCard: React.FC = () => {
         setLoading(false);
       } catch (err) {
         console.error('Error fetching data:', err);
+        setError(true);
         setLoading(false);
       }
     };
     fetchTeams();
-  }, []);
+  }, [API_KEY]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -36,7 +37,7 @@ const TeamsCard: React.FC = () => {
   return (
     <div className="teams-container">
       {teams.map((team) => (
-        <div key={team.id} className="team-card">
+        <div key={team.id} className="team-card" data-testid={`team-card-${team.id}`}>
           <img src={team.crestUrl} alt={team.name} className="team-logo" />
           <h3>{team.name}</h3>
           <p>Founded: {team.founded}</p>

@@ -39,16 +39,16 @@ export default function NewsPage() {
                 alt="Rozgrywki Europejskie Story Image"
                 className="w-full h-64 object-cover object-center rounded-lg"
                 height="400"
-                src="/placeholder.svg"
+                src="/images/polska-euro.jpeg"
                 style={{
                   aspectRatio: "600/400",
                   objectFit: "cover",
                 }}
                 width="600"
               />
-              <h3 className="text-xl font-bold mb-2 mt-4">Rozgrywki Europejskie Story Headline</h3>
+              <h3 className="text-xl font-bold mb-2 mt-4">Polska odpada z turnieju!</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the business story. Click the link to read more.
+                Po dwóch porazkach, Polacy zeganja się z turniejem.
               </p>
               <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More
@@ -59,16 +59,16 @@ export default function NewsPage() {
                 alt="Rozgrywki Europejskie Story Image"
                 className="w-full h-64 object-cover object-center rounded-lg"
                 height="400"
-                src="/placeholder.svg"
+                src="/images/polska-holandia.jpeg"
                 style={{
                   aspectRatio: "600/400",
                   objectFit: "cover",
                 }}
                 width="600"
               />
-              <h3 className="text-xl font-bold mb-2 mt-4">Rozgrywki Europejskie Story Headline</h3>
+              <h3 className="text-xl font-bold mb-2 mt-4">Przegrywamy z Holandią!</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the business story. Click the link to read more.
+                Po emocjonalnej końcówce, w której tracimy gola, kończymy mecz z 0 punktami.
               </p>
               <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More
@@ -79,16 +79,16 @@ export default function NewsPage() {
                 alt="Rozgrywki Europejskie Story Image"
                 className="w-full h-64 object-cover object-center rounded-lg"
                 height="400"
-                src="/placeholder.svg"
+                src="/images/euro2024.jpeg"
                 style={{
                   aspectRatio: "600/400",
                   objectFit: "cover",
                 }}
                 width="600"
               />
-              <h3 className="text-xl font-bold mb-2 mt-4">Rozgrywki Europejskie Story Headline</h3>
+              <h3 className="text-xl font-bold mb-2 mt-4">Rozpoczynamy EURO 2024!</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the business story. Click the link to read more.
+                W meczu otwarcia Niemcy podejmą zespół Szkocji.
               </p>
               <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More
@@ -104,16 +104,16 @@ export default function NewsPage() {
                 alt="Nadchodzące wydarzenia Story Image"
                 className="w-full h-64 object-cover object-center rounded-lg"
                 height="400"
-                src="/placeholder.svg"
+                src="/images/pucharowa.jpeg"
                 style={{
                   aspectRatio: "600/400",
                   objectFit: "cover",
                 }}
                 width="600"
               />
-              <h3 className="text-xl font-bold mb-2 mt-4">Nadchodzące wydarzenia Story Headline</h3>
+              <h3 className="text-xl font-bold mb-2 mt-4">Juz niedlugo - faza finałowa EURO 2024</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the culture story. Click the link to read more.
+                Kończymy rozgrywki grupowe, które przyniosły nam wiele niespodzianek.
               </p>
               <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More
@@ -124,16 +124,16 @@ export default function NewsPage() {
                 alt="Nadchodzące wydarzenia Story Image"
                 className="w-full h-64 object-cover object-center rounded-lg"
                 height="400"
-                src="/placeholder.svg"
+                src="/images/polska_start.jpeg"
                 style={{
                   aspectRatio: "600/400",
                   objectFit: "cover",
                 }}
                 width="600"
               />
-              <h3 className="text-xl font-bold mb-2 mt-4">Nadchodzące wydarzenia Story Headline</h3>
+              <h3 className="text-xl font-bold mb-2 mt-4">Polacy juz w drodze na ME 2024!</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the culture story. Click the link to read more.
+                W pierwszym meczu Polska reprezentacja zmierzy się z kadrą Holandii.
               </p>
               <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More
@@ -144,16 +144,16 @@ export default function NewsPage() {
                 alt="Nadchodzące wydarzenia Story Image"
                 className="w-full h-64 object-cover object-center rounded-lg"
                 height="400"
-                src="/placeholder.svg"
+                src="/images/final.jpeg"
                 style={{
                   aspectRatio: "600/400",
                   objectFit: "cover",
                 }}
                 width="600"
               />
-              <h3 className="text-xl font-bold mb-2 mt-4">Nadchodzące wydarzenia Story Headline</h3>
+              <h3 className="text-xl font-bold mb-2 mt-4">Finał Ligi Mistrzów</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the culture story. Click the link to read more.
+                Czy Borussia Dortmund zaskoczy?
               </p>
               <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More
@@ -169,16 +169,16 @@ export default function NewsPage() {
                 alt="Sports Story Image"
                 className="w-full h-64 object-cover object-center rounded-lg"
                 height="400"
-                src="/placeholder.svg"
+                src="/images/grosik.jpeg"
                 style={{
                   aspectRatio: "600/400",
                   objectFit: "cover",
                 }}
                 width="600"
               />
-              <h3 className="text-xl font-bold mb-2 mt-4">Sports Story Headline</h3>
+              <h3 className="text-xl font-bold mb-2 mt-4">Kamil Grosicki zegna się z reprezentacją!</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the sports story. Click the link to read more.
+                Kamil Grosicki rozegrał ostatni mecz w kadrze narodowej! Tutaj znajdziesz wszystkie jego osiągnięcia.
               </p>
               <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More
@@ -189,16 +189,16 @@ export default function NewsPage() {
                 alt="Sports Story Image"
                 className="w-full h-64 object-cover object-center rounded-lg"
                 height="400"
-                src="/placeholder.svg"
+                src="/images/debiut.jpeg"
                 style={{
                   aspectRatio: "600/400",
                   objectFit: "cover",
                 }}
                 width="600"
               />
-              <h3 className="text-xl font-bold mb-2 mt-4">Sports Story Headline</h3>
+              <h3 className="text-xl font-bold mb-2 mt-4">Debiutanci na EURO!</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the sports story. Click the link to read more.
+                Euro 2024 to turniej w którym, poznamy wiele nowych twarzy. Przyglądamy się zawodnikom i ich karierom. Zobacz!
               </p>
               <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More
@@ -209,16 +209,16 @@ export default function NewsPage() {
                 alt="Sports Story Image"
                 className="w-full h-64 object-cover object-center rounded-lg"
                 height="400"
-                src="/placeholder.svg"
+                src="/images/toni-kroos.jpeg"
                 style={{
                   aspectRatio: "600/400",
                   objectFit: "cover",
                 }}
                 width="600"
               />
-              <h3 className="text-xl font-bold mb-2 mt-4">Sports Story Headline</h3>
+              <h3 className="text-xl font-bold mb-2 mt-4">Toni Kroos odchodzi z Realu Madryt!</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the sports story. Click the link to read more.
+                Wraz z finałem ligi mistrzów, niemiecki pomocnik ogłosił, ze zamierza opuścić stolicę Hiszpanii.
               </p>
               <Link className="text-blue-500 hover:text-blue-700 mt-4" to="#">
                 Read More

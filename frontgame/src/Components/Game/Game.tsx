@@ -153,13 +153,10 @@ const Game: React.FC = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold text-center mb-4">Game</h1>
       {winner && <h2 className="text-3xl font-bold text-center text-green-500 mb-4">You WIN!</h2>}
-      {winner && (
-        <div className="flex justify-center space-x-4 mb-4">
-          <button onClick={handlePlayAgain} className="bg-blue-500 text-white px-4 py-2 rounded">Play Again?</button>
-          <button onClick={handleShowAllAnswers} className="bg-gray-500 text-white px-4 py-2 rounded">Show all answers</button>
-        </div>
-      )}
-      {error && <p className="text-red-500 text-center">{`Error: ${error}`}</p>}
+      <div className="flex justify-center space-x-4 mb-4">
+        <button onClick={handlePlayAgain} className="bg-blue-500 text-white px-4 py-2 rounded">Play Again</button>
+        <button onClick={handleShowAllAnswers} className="bg-gray-500 text-white px-4 py-2 rounded">Show all answers</button>
+      </div>
       <div className="grid grid-cols-3 gap-4">
         {grid.map((row, rowIndex) => (
           row.map(({ pair, count, correct, answer }, colIndex) => (

@@ -1,7 +1,6 @@
 const express = require('express');
 const redis = require('redis');
 const path = require('path');
-const serverless = require('serverless-http')
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3001;
@@ -68,4 +67,3 @@ if(process.env.NODE_ENV !== 'lambda') {
         console.log(`Server is running on http://localhost:${port}`);
     });
 }
-module.exports.handle = serverless(app);

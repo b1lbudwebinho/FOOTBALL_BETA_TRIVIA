@@ -29,8 +29,11 @@ app.use('/api', createProxyMiddleware({
         // Add API key to request headers brosk
         proxyReq.setHeader('X-Auth-Token', process.env.FOOTBALL_DATA_API_KEY);
     },
+    logLevel: 'debug'
 }));
 
 app.listen(port, () => {
     console.log(`Proxy server is running on http://localhost:${port}`);
 });
+
+module.exports = app;

@@ -1,21 +1,31 @@
 {
   "name": "servergame",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "servr.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "concurrently \"node servr.js\" \"node proxySrv.js\"",
+    "start:server": "node servr.js",
+    "start:proxy": "node proxySrv.js",
+    "populate:redis": "node populateRedis.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.7.2",
+    "concurrently": "^8.2.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "http-proxy-middleware": "^3.0.0",
-    "redis": "^4.6.14",
-    "serverless-http": "^3.2.0"
+    "redis": "^4.6.14"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "redis-mock": "^0.56.3",
+    "serverless-offline": "^13.6.0",
+    "supertest": "^7.0.0"
+  }
 }
