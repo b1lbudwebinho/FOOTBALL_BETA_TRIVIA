@@ -3,13 +3,26 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import { MantineProvider } from '@mantine/core';
+
+// ResizeObserver deprecated func. suppress
+window.addEventListener('error', event => {
+  if (event.message === 'ResizeObserver loop completed with undelivered notifications.') {
+    event.stopImmediatePropagation();
+  }
+});
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <MantineProvider defaultColorScheme='dark'>
+        <App />
+      </MantineProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

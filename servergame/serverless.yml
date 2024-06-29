@@ -1,0 +1,27 @@
+# # "org" ensures this Service is used with the correct Serverless Framework Access Key.
+# org: studenciakimajaproblem
+# # "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+# app: football-beta-trivia
+# service: football-trivia-backend
+
+# provider:
+#   name: aws
+#   runtime: nodejs20.x
+#   region: us-east-1
+#   stage: dev
+
+# functions:
+#   app:
+#     handler: servr.handle
+#     events:
+#       - http:
+#           path: /{proxy+}
+#           method: any
+
+# plugins:
+#   - serverless-offline
+
+# package:
+#   exclude:
+#     - node_modules/**
+#     - frontend/**

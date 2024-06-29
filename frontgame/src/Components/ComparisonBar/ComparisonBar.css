@@ -1,0 +1,29 @@
+.comparison-bar {
+    width: 100%; /* Adjust width as needed */
+    height: 30px;  /* Adjust height as needed */
+    background-color: #e2e8f0; /* Background color for the entire bar */
+    border-radius: 5px;       /* Rounded corners */
+    overflow: hidden;         /* Hide overflowing content */
+  }
+  
+  .bar-segment {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Text color */
+    transition: width 0.3s ease; /* Smooth width transition */
+  }
+  
+  .bar-a {
+    background-color: #4299e1; /* Color for option A */
+  }
+  
+  .bar-b {
+    background-color: #f56565; /* Color for option B */
+  }
+  
+  .bar-label {
+    font-weight: bold;
+  }
+  
